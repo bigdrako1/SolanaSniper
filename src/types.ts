@@ -4,6 +4,9 @@ export interface NewTokenRecord {
   name: string;
   mint: string;
   creator: string;
+  duplicate_count?: number; // Added to track how many times this token/creator has appeared
+  is_scam?: boolean; // Flag to mark tokens identified as scams
+  is_rugged?: boolean; // Flag to mark tokens identified as rugged
 }
 export interface MintsDataReponse {
   tokenMint?: string;
@@ -69,4 +72,12 @@ export interface RugResponseExtended {
   totalMarketLiquidity: number;
   totalLPProviders: number;
   rugged: boolean;
+}
+
+// New interface to track creator reputation
+export interface CreatorReputation {
+  creator: string;
+  scam_count: number;
+  rugged_count: number;
+  total_tokens: number;
 }
